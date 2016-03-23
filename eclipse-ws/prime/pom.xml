@@ -15,7 +15,7 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
+            <plugin><!-- execute main application like so: java -jar target/prime-0.0.1-SNAPSHOT.jar  -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.4.3</version>
@@ -35,6 +35,24 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin><!-- execute main application like so: mvn exec:exec -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-Xms512m</argument>
+                        <argument>-Xmx512m</argument>
+                        <argument>-XX:NewRatio=3</argument>
+                        <argument>-XX:+PrintGCTimeStamps</argument>
+                        <argument>-XX:+PrintGCDetails</argument>
+                        <argument>-Xloggc:gc.log</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>webservice.PrimesController</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
         </plugins>
   
   
@@ -49,7 +67,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-             <scope>test</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
@@ -75,7 +93,13 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.10.19</version>
-             <scope>test</scope>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <type>zip</type>
         </dependency>
     </dependencies>
   
