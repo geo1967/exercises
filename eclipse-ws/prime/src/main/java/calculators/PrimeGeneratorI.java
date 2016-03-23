@@ -5,13 +5,11 @@
  */
 package calculators;
 
-import java.util.List;
-
 /**
  *
  * @author georgemullen
  */
 public interface PrimeGeneratorI {
-	int[]  primes(int max);
+	int[]  primes(int max) throws PrimeGeneratorException;
    
 }

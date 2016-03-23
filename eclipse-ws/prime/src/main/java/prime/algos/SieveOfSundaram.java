@@ -1,5 +1,6 @@
 package prime.algos;
 
+import calculators.PrimeGeneratorException;
 import calculators.PrimeGeneratorI;
 import java.util.Set;
 import java.util.stream.*;
@@ -22,8 +23,15 @@ public class SieveOfSundaram implements PrimeGeneratorI {
      * @param max
      * @return 
      */
-    public int[] primes(int max) {
-        return getPrimes(max).toArray();
+    public int[] primes(int max) throws PrimeGeneratorException{
+        try
+        {
+            return getPrimes(1, max).toArray();
+        }
+        catch(Exception ex)
+        {
+            throw new PrimeGeneratorException("Failed SieveOfSundaram sieve calculation - " + ex.getMessage(), ex);
+        }       
     }
     
     public static int sundNum(int i, int j) {
@@ -44,11 +52,13 @@ public class SieveOfSundaram implements PrimeGeneratorI {
                 .reduce(IntStream.empty(), SieveOfSundaram::accumulate);
     }
 
-    public static IntStream getPrimes(final int max) {
-        Set<Integer> sundSet = sundNumFullStream(max).boxed().collect(Collectors.toSet());
+    public static IntStream getPrimes(final int start, final int max) {
+        int sundLimit = 2*(int)Math.sqrt(max); // sundNum squared of same order magnitude as max prime - optimisation to reduce redundant calcs
+       
+        Set<Integer> sundSet = sundNumFullStream(sundLimit).boxed().collect(Collectors.toSet());
         Set<Integer> naturalNumberSet = IntStream.rangeClosed(1, max).boxed().collect(Collectors.toSet());
         naturalNumberSet.removeAll(sundSet);
-        return IntStream.concat(IntStream.of(2), naturalNumberSet.stream().mapToInt(x -> (2 * x) + 1)).filter(x->(x<max ));
+        return IntStream.concat(IntStream.of(2), naturalNumberSet.stream().mapToInt(x -> (2 * x) + 1)).filter(x->(x>=start && x<=max ));
     }
 
  

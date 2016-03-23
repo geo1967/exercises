@@ -16,6 +16,8 @@ public class PrimeCalculatorFactory {
 
     private final SieveOfSundaram _SieveOfSundaram = new SieveOfSundaram();
     private final TrialDivision _TrialDivision = new TrialDivision();
+   //   private final CannedDataPrimes _TrialDivision = new CannedDataPrimes();
+    
 
     public PrimeGeneratorI getCalculator(String algo) {
         switch (algo) {

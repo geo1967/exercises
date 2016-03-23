@@ -7,7 +7,9 @@ package prime.algos;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,17 +52,29 @@ public class SieveOfSundaramTest {
 
     @Test
     public void sundNumPartStream() {
-
         List<Integer> actual = testClazz.sundNumPartStream(4).boxed().collect(Collectors.toList());
         List<Integer> expected = Arrays.asList(testClazz.sundNum(1, 4), testClazz.sundNum(2, 4), testClazz.sundNum(3, 4), testClazz.sundNum(4, 4));
-        assertEquals(expected, actual);
+        assertEquals(expected, actual);            
     }
 
-    @Test
-    public void primes() {
-        int[] actual = testClazz.getPrimes(maxLimit).filter(x->x<=maxLimit).toArray();
-        int[] expected = expected_primes;
+     @Test
+    public void getPrimes_in_range() {
+        final int min = 4;
+        final int max = 23;
+        int[] actual = testClazz.getPrimes(min, max).toArray();
+        int[] expected = {5, 7, 11, 13, 17, 19, 23};
         assertArrayEquals(expected, actual);
     }
+    
+    
+    @Test
+    public void primes() {
+        int[] actual = testClazz.getPrimes(1, maxLimit).toArray();
+        int[] expected = expected_primes;
+        assertArrayEquals(expected, actual);     
+    }
 
+    
+    
+    
 }
