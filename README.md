@@ -30,9 +30,9 @@ http://localhost:8080/prime/SieveOfSundaram/100
 http://localhost:8080/prime/CannedDataPrimes/100
 
  http://localhost:8080/prime/SpoofSegmentedSieve/100 
-
+```
 i.e web service mapping : "<host>:><port>/<method>/<algo-param>/<max-prime-limit> "
-
+```
 
 
 
