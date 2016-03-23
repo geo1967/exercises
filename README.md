@@ -11,7 +11,7 @@ Installation
 
  `git clone https://github.com/geo1967/exercises`
  
- `cd xercises/eclipse-ws/prime`
+ `cd exercises/eclipse-ws/prime`
  
  `mvn test`
  
