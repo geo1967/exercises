@@ -51,7 +51,7 @@ public class SpoofSegmentedSieveTest {
         int[] limits = new int[] {7,13};
         testClazz.dispatchCalculation(limits, mockAccumulator);
         Set<Integer> expected = new HashSet<>(Arrays.asList(7,11,13));
-        testClazz.primes(20);
+        Thread.sleep(1000);// qucik and dirty hack to allow other thread to update accumulator
         verify(mockAccumulator).accept(eq(expected));
 
     }
