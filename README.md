@@ -18,12 +18,15 @@ Start the web service
 - To run the web service mvn exec:exec
 - go to you web browser and enter the following urls
 
-- http://localhost:8080/prime/TrialDivision/100
-- http://localhost:8080/prime/SieveOfSundaram/100 
-- http://localhost:8080/prime/CannedDataPrimes/100 
-- http://localhost:8080/prime/SpoofSegmentedSieve/100 
+ http://localhost:8080/prime/TrialDivision/100   
 
-i.e web service mapping : <host>:><port>/<method>/<algo-param>/<max-prime-limit>   
+ http://localhost:8080/prime/SieveOfSundaram/100 
+
+ http://localhost:8080/prime/CannedDataPrimes/100 
+
+ http://localhost:8080/prime/SpoofSegmentedSieve/100 
+
+i.e web service mapping : "<host>:><port>/<method>/<algo-param>/<max-prime-limit> "
 
 
 
