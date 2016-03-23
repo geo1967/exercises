@@ -8,21 +8,21 @@ Project to  prototype a  spring web service that will provide a range of generat
 
 Installation
 -  Ensure java 1.8 and maven  3.3.9  are installed on your local machine
-- Clone the repository like so:   git clone https://github.com/geo1967/exercises
-- cd xercises/eclipse-ws/prime
-- To run the tests: mvn test
+- Clone the repository like so:   `git clone https://github.com/geo1967/exercises`
+- `cd xercises/eclipse-ws/prime`
+- To run the tests: `mvn test`
  
 
 
 Start the web service 
-- To run the web service mvn exec:exec
+- To run the web service `mvn exec:exec`
 - go to you web browser and enter the following urls
 
- http://localhost:8080/prime/TrialDivision/100   
+http://localhost:8080/prime/TrialDivision/100
 
- http://localhost:8080/prime/SieveOfSundaram/100 
+http://localhost:8080/prime/SieveOfSundaram/100
 
- http://localhost:8080/prime/CannedDataPrimes/100 
+http://localhost:8080/prime/CannedDataPrimes/100
 
  http://localhost:8080/prime/SpoofSegmentedSieve/100 
 
